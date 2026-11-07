@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZX 全能工具箱 - 官方网站</title>
+    <title>ZX 全能工具箱</title>
+    
+    <!-- 动态注入网页小图标 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231E1E24'/><text x='50' y='70' font-size='60' font-family='Arial' font-weight='bold' fill='%23FF9A9E' text-anchor='middle'>Z</text><text x='50' y='70' font-size='60' font-family='Arial' font-weight='bold' fill='%23A18CD1' text-anchor='middle'>X</text></svg>">
+
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
             --text-dark: #1d1d1f;
             --text-light: #515154;
         }
@@ -17,15 +20,14 @@
 
         body {
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(-45deg, #FF9A9E, #FECFEF, #A18CD1, #FBC2EB);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             color: var(--text-dark);
         }
 
@@ -35,13 +37,49 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* 顶部导航栏 */
+        .navbar {
+            width: 100%;
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .navbar-logo {
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-domain {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
         .container {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 32px;
             padding: 50px 40px;
-            max-width: 600px;
+            max-width: 800px; /* 加宽以容纳更多卡片 */
             width: 100%;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
             animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -55,7 +93,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .logo {
@@ -86,9 +124,10 @@
             letter-spacing: 1px;
         }
 
+        /* 核心功能区域 */
         .features {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 16px;
             margin: 40px 0;
         }
@@ -99,6 +138,9 @@
             border-radius: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .feature-card:hover {
@@ -108,8 +150,7 @@
 
         .feature-card .icon {
             font-size: 24px;
-            margin-bottom: 8px;
-            display: block;
+            margin-bottom: 12px;
         }
 
         .feature-card strong {
@@ -212,72 +253,110 @@
         }
 
         @media (max-width: 480px) {
-            .features { grid-template-columns: 1fr; }
             .container { padding: 30px 20px; }
             .logo { font-size: 42px; }
+            .navbar { padding: 12px 16px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <div class="logo">ZX</div>
-            <h1>全能工具箱</h1>
-            <div class="version">VERSION 1.0</div>
-        </div>
+    <!-- 顶栏 -->
+    <div class="navbar">
+        <div class="navbar-logo">ZX TOOLBOX</div>
+        <div class="navbar-domain">zx.xn--6or.gay</div>
+    </div>
 
-        <div class="features">
-            <div class="feature-card">
-                <span class="icon">🐍</span>
-                <strong>独立 Python 引擎</strong>
-                <p>突破系统限制，内置完整原生动态库，无需配置环境，即点即跑。</p>
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <div class="logo">ZX</div>
+                <h1>全能工具箱</h1>
+                <div class="version">VERSION 1.0</div>
             </div>
-            <div class="feature-card">
-                <span class="icon">📦</span>
-                <strong>企业级压缩解压</strong>
-                <p>支持 AES 加密 ZIP，自带智能同名保护机制，绝不让文件意外丢失。</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">📊</span>
-                <strong>底层系统探针</strong>
-                <p>一键读取真实设备参数，硬核检测 Bootloader 锁与 Root 越权状态。</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">🤖</span>
-                <strong>顶级 AI 对战</strong>
-                <p>内置极小化极大算法，五子棋与井字棋支持三重难度，看你能否战胜 AI。</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">📱</span>
-                <strong>极客实用套件</strong>
-                <p>包含简繁转换、二维码生成、全屏滚动弹幕、年龄精准计算等硬核功能。</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">⚙️</span>
-                <strong>硬件深度控制</strong>
-                <p>纯净直达底层，支持手电筒快捷开关、音量精准调节、屏幕亮度强制改写。</p>
-            </div>
-        </div>
 
-        <a href="https://gitee.com/xzh_Tim/zx/releases/download/1.0/ZXToolbox.apk" class="download-btn">
-            ⬇️ 立即下载 Android 版
-        </a>
+            <div class="features">
+                <div class="feature-card">
+                    <span class="icon">🐍</span>
+                    <strong>独立 Python 引擎</strong>
+                    <p>内置完整原生动态库，无需配置环境，即点即跑代码，支持彩色 ANSI 输出。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📦</span>
+                    <strong>ZIP 智能压缩/解压</strong>
+                    <p>支持 AES 加密压缩与密码解压，自带同名文件安全覆盖提示。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📊</span>
+                    <strong>底层系统探针</strong>
+                    <p>读取真实设备参数，硬核检测 Bootloader 锁与 Root 越权状态。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🤖</span>
+                    <strong>AI 五子棋</strong>
+                    <p>内置极小化极大算法的 AI 对手，支持三种难度挑战。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🎮</span>
+                    <strong>AI 井字棋</strong>
+                    <p>永远不会放水的 AI，挑战你能否在最高难度下取得平局。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🔤</span>
+                    <strong>简繁转换</strong>
+                    <p>基于底层 ICU 库，极速、精准地进行简体与繁体中文互转。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📱</span>
+                    <strong>应用列表探秘</strong>
+                    <p>一键罗列系统所有应用，查看图标、包名，支持快捷复制与卸载。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🔏</span>
+                    <strong>APK 本地签名</strong>
+                    <p>纯内存调用官方 apksig 引擎，无需外部命令，一键签名你的安装包。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">📷</span>
+                    <strong>二维码生成器</strong>
+                    <p>支持生成纯文本或网页跳转二维码，无第三方依赖，极速渲染。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🎇</span>
+                    <strong>全屏弹幕跑马灯</strong>
+                    <p>输入文字，选择颜色，瞬间点亮全屏，支持横屏无限滚动播放。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">🎂</span>
+                    <strong>年龄精确计算</strong>
+                    <p>输入出生年份与当前年份，快速计算年龄及存活天数。</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">⚙️</span>
+                    <strong>硬件深度控制</strong>
+                    <p>支持手电筒快捷开关、音量精准调节、屏幕亮度强制改写。</p>
+                </div>
+            </div>
 
-        <div class="letter-section">
-            <div class="letter-title">💌 开发者的话</div>
-            <p class="letter-content">
-                大家好，我是 ZX 工具箱的开发者。很高兴你能看到这里！<br><br>
-                这可能不是一个功能最庞大的软件，但绝对是我倾注了最多心血的作品。由于我目前还在<span class="highlight">预初年级（六年级）</span>就读，平时的课业比较繁重，个人的精力和时间真的非常有限。<br><br>
-                因为我是手工从零开始搭建的底层，没有使用任何现代化的便捷框架，所以目前的版本还无法完成全面的英文适配。如果在某些界面留下了纯中文，请大家多多包涵。<br><br>
-                我会在未来的假期里继续打磨这个工具，努力把它做得更好。感谢你的下载与支持！
-            </p>
-        </div>
+            <a href="https://gitee.com/xzh_Tim/zx/releases/download/1.0/ZXToolbox.apk" class="download-btn">
+                ⬇️ 立即下载 Android 版
+            </a>
 
-        <div class="footer">
-            遇到 Bug 或想提供建议？<br>
-            请前往 <a href="https://gitee.com/xzh_Tim/zx/issues" target="_blank">Gitee 仓库</a> 提交 Issue，<br>
-            或发送邮件至：xiexiezihan077@gmail.com
+            <div class="letter-section">
+                <div class="letter-title">💌 开发者的话</div>
+                <p class="letter-content">
+                    大家好，我是 ZX 工具箱的开发者。很高兴你能看到这里！<br><br>
+                    这可能不是一个功能最庞大的软件，但绝对是我倾注了最多心血的作品。由于我目前还在<span class="highlight">预初年级（六年级）</span>就读，平时的课业非常繁重，个人的精力和时间真的非常有限。<br><br>
+                    因为我是纯手工从零开始搭建的底层（没有借助任何现代化框架），所以目前的版本<span class="highlight">还无法完成全面的英文适配</span>。请大家多多包涵。同时，由于我平时要上学，<span class="highlight">发现 Bug 后可能无法做到立刻修复</span>，希望大家能给我一点时间，我会在周末或假期尽力去解决它。<br><br>
+                    我会在未来的日子里继续打磨这个工具，努力把它做得更好。感谢你的下载与支持！
+                </p>
+            </div>
+
+            <div class="footer">
+                遇到 Bug 或想提供建议？<br>
+                请前往 <a href="https://gitee.com/xzh_Tim/zx/issues" target="_blank">Gitee 仓库</a> 提交 Issue，<br>
+                或发送邮件至：xiexiezihan079@gmail.com
+            </div>
         </div>
     </div>
 
