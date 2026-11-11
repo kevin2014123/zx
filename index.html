@@ -79,6 +79,13 @@
             margin-top: 15px;
             box-shadow: 0 4px 12px rgba(0,122,255,0.2);
         }
+        
+        .next-version {
+            font-size: 12px;
+            color: #ff3b30;
+            font-weight: bold;
+            margin-left: 8px;
+        }
 
         /* 主体卡片容器 */
         .container {
@@ -295,11 +302,26 @@
     <div class="header">
         <div class="logo-text">ZX TOOLBOX</div>
         <div class="subtitle">科技不再是高高在上，而是服务于人民</div>
-        <div class="version-badge">Version 1.0 · 所有功能无需网络版</div>
+        <div class="version-badge">Version 1.0 · 无需网络版 <span class="next-version">(下个版本直跳 3.0)</span></div>
     </div>
 
     <div class="container">
         <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌌</div>
+                <h3>灵界系统接入</h3>
+                <p>内置“灵界 OS”轻量级浏览器操作系统引导页。一键下载、自动拉起安装器，无缝体验包含 17 个内置应用的独立系统。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>极简时间工具</h3>
+                <p>精准设备时间实时同步，支持正计时与倒计时。Tabs 极简切换，丝滑且直观。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔐</div>
+                <h3>安全密码生成器</h3>
+                <p>基于底层 SecureRandom 强随机数，自定义数字、字母与特殊符号，生成无懈可击的终极密码。</p>
+            </div>
             <div class="feature-card">
                 <div class="feature-icon">🐍</div>
                 <h3>独立 Python 引擎</h3>
@@ -329,16 +351,6 @@
                 <div class="feature-icon">🎇</div>
                 <h3>全屏弹幕跑马灯</h3>
                 <p>输入任意文字，选择炫彩颜色。瞬间点亮全屏横屏无限滚动，聚会整活必备神器。</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔐</div>
-                <h3>安全密码生成器</h3>
-                <p>基于底层 SecureRandom 强随机数，自定义数字、字母与特殊符号，生成无懈可击的终极密码。</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⏱️</div>
-                <h3>极简时间工具</h3>
-                <p>精准设备时间实时同步，支持正计时与倒计时。Tabs 极简切换，丝滑且直观。</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
@@ -379,7 +391,7 @@
         <div class="footer-links">
             <div class="footer-row">
                 <div class="footer-label">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#c71d23"><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.333c0 .982.796 1.778 1.778 1.778h4.741c.982 0 1.778-.796 1.778-1.778v-2.37a.593.593 0 0 1 .592-.593h1.482a.593.593 0 0 1 .593.593v2.37a4.74 4.74 0 0 1-4.741 4.741H9.777a4.741 4.741 0 0 1-4.741-4.741v-5.333a4.741 4.741 0 0 1 4.741-4.741h7.705z"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#c71d23"><path d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.333c0 .982.796 1.778 1.778 1.778h4.741c.982 0 1.778-.796 1.778-1.778v-2.37a.593.593 0 0 1 .592-.593h1.482a.593.593 0 0 1 .593.593v2.37a4.74 4.74 0 0 1-4.741 4.741H9.777a4.74 4.74 0 0 1-4.741-4.741v-5.333a4.74 4.74 0 0 1 4.741-4.741h7.705z"/></svg>
                     Gitee issues(用于 bug 反馈)
                 </div>
                 <div class="footer-url">https://gitee.com/xzh_Tim/zx/issues</div>
